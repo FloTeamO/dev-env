@@ -1,0 +1,83 @@
+set nocompatible
+
+" vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlp.vim'
+Plugin 'tomasr/molokai'
+Plugin 'a.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'MarcWeber/vim-addon-local-vimrc'
+Plugin 'marijnh/tern_for_vim'
+call vundle#end()
+filetype plugin indent on
+
+" YCM configuration
+" Don't show a warning every time we load a .ycm_extra_conf.py file
+let g:ycm_confirm_extra_conf=0
+let g:ycm_always_populate_location_list = 1
+let g:ycm_open_loclist_on_ycm_diags=0
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_seed_identifiers_with_syntax=1
+
+" Ctrl-P
+" Only open files in child directories of the current working dir
+let g:ctrlp_working_path_mode=''
+set wildignore+=build*,bundle,CMakeFiles,.git,*.pyc,old,*.wrap
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 15000 " for ITK
+
+let g:syntastic_python_checkers = ['pyflakes']
+
+set mouse=a
+
+" look and feel
+syntax on
+set t_Co=256
+" colorscheme molokai
+
+" search
+set incsearch
+set hlsearch
+set smartcase
+
+" indenting
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+set makeprg=ninja-build
+
+""" Generic mappings
+let mapleader=","
+map  <F1> <Esc>:w<CR>|      "Fast save
+imap <F1> <Esc>:w<CR>|      "Fast save
+map  <F2> :make<Up><CR>|    "Fast compile
+map  <F3> :bn<CR>
+map  <S-F3> :bp<CR>
+" Same mapping for gnome-terminal ( see http://stackoverflow.com/q/12813126/164171 )
+map O1;2R :bp<CR>
+
+map  <F4> :bd<CR>|          "Close buffer
+
+map  <F5> :cnext<cr>
+map  <S-F5> :cprev<cr>
+imap  <F5> <Esc>:cnext<cr>
+imap  <S-F5> <Esc>:cprev<cr>
+
+map <F6> :Gstatus<Cr>
+map <F7> <Esc>:A<Cr>
+
+set pastetoggle=<F11>
+" Mapping for tpope/vim-commentary
+map <C-c> gcc<Esc>
+imap <C-c> <Esc>gcc<Esc>
+
+au BufEnter,BufRead,BufNewFile *.txx set filetype=cpp
+au BufEnter,BufRead,BufNewFile *.hxx set filetype=cpp

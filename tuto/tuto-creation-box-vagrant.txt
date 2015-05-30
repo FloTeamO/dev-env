@@ -1,0 +1,22 @@
+# Install ubuntu 14 with the native image and the following settings
+user/passwd: vagrant/vagrant
+HDD dynamic size: 40Go
+Memory: 4Go
+CPU: 2CPU
+3D acceleration: enable
+Disable floppy boot
+use NAT ethernet connection only
+
+# after installation launch a terminal
+sudo apt-get update
+sudo apt-get install linux-headers-generic build-essential dkms
+sudo apt-get intall openssh-server
+
+# install guest additions: click on VirtualBox menu/Devices/Install guests and follow guidance
+
+# add following public key in ~/.ssh/authorized_keys (https://github.com/mitchellh/vagrant/tree/master/keys)
+sudo chmod 700 ~/.ssh
+sudo chmod 600 ~/.ssh/authorized_keys
+
+# disable password for vagrant user when sudo
+sudo echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
