@@ -56,6 +56,6 @@ cp -r /vagrant/data/dotvim ~/.vim
 cp /vagrant/data/dotvimrc ~/.vimrc
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
-sudo aptitude install -y libpython-dev libboost-dev libclang-dev
+sudo aptitude install -y libpython-dev libboost-all-dev libclang-dev cmake
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer --system-libclang --system-boost
