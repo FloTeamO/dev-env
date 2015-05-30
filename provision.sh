@@ -51,6 +51,10 @@ cp /vagrant/data/dotgdbinit ~/.gdbinit
 cp /vagrant/data/dotpylintrc ~/.pylintrc
 cp /vagrant/data/dotjshintrc ~/.jshintrc
 
+# ssh configuration
+cp /vagrant/data/dotssh/* ~/.ssh/
+chmod 600 ~/.ssh/*
+
 # vim configuration
 cp -r /vagrant/data/dotvim ~/.vim
 cp /vagrant/data/dotvimrc ~/.vimrc
