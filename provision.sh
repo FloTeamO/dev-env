@@ -4,7 +4,7 @@ sudo apt-get upgrade
 sudo apt-get install -y xinit unity ubuntu-desktop
 
 # development software installation
-sudo apt-get install -y aptitude vim autojump screen wget vim git git-completion autojump screen build-essential
+sudo apt-get install -y aptitude vim autojump screen wget git git-completion build-essential
 
 # Android Debug Bridge (ADB) dependencies (http://developer.android.com/sdk/installing/index.html?pkg=tools)
 sudo aptitude install -y lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
